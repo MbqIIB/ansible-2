@@ -5,12 +5,13 @@
    1. $ sudo apt-get install git #install 
    2. $ git config --global user.name "asjalik" #kasutajanimi 
    3. $ git config --global user.email "laidma27[at]gmail.com" #email 
-   4. $ git init #initializeb directoryt kus asud 
-   5. $ git add . #lisbab kõik mis directorys on
-   6. $ git add README.md #lisab kindla faili 
-   7. $ git commit -m "Ansible" 
-   8. $ git remote add origin https://github.com/asjalik/ansible-master.git #addib remotesse 
-   9. $ git push origin master #pushib failid kõik üles gi 
+   4. $ git config --list #näitab mis conf on määratud
+   5. $ git init #initializeb directoryt kus asud 
+   6. $ git add . #lisbab kõik mis directorys on
+   7. $ git add README.md #lisab kindla faili 
+   8. $ git commit -m "Ansible" 
+   9. $ git remote add origin https://github.com/asjalik/ansible-master.git #addib remotesse 
+   10. $ git push origin master #pushib failid kõik üles gi 
 
 #KUIDAS UPDATE FAILE:
    1. $ git commit #näitab ära mida saab commitida
@@ -32,3 +33,19 @@
    5. Paste your key into the "Key" field. 
    6. Click Add key. 
    7. Confirm the action by entering your GitHub password.
+
+# Testi ühendust:
+   1. $ ssh -T git@github.com
+   2. Kui sul ei löö midagi ette, pead .ssh kausta config faili lisama ja sinna moned read lisama! 
+
+# Vaata, et .ssh asukohas oleks config fail ja sisaldaks jargnevat:
+   1. go to $ ~/.ssh/config
+   2. muuda ja lisa sellised read:
+   3. Host github.com
+   4.   Hostname ssh.github.com
+   5.   Port 443 
+   6. Testi uuesti ühendust:
+   7. $ ssh -T git@github.com
+   8. Enter passphrase for key '/root/.ssh/id_rsa': 
+   9. Hi asjalik! You've successfully authenticated, but GitHub does not provide shell access.
+   10. Nüüd saad SSH key abil giti uploadida!
