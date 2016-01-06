@@ -43,7 +43,9 @@
    2. muuda ja lisa sellised read:
 
     Host github.com 
+
       Hostname ssh.github.com 
+
       Port 443 
 
    6. Testi uuesti ühendust:
