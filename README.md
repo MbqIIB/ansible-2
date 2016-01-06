@@ -4,7 +4,7 @@
 # Paigalda GIT:
    1. $ sudo apt-get install git #install 
    2. $ git config --global user.name "asjalik" #kasutajanimi 
-   3. $ git config --global user.email "laidma27@gmail.com" #email 
+   3. $ git config --global user.email "laidma27[at]gmail.com" #email 
    4. $ git init #initializeb directoryt kus asud 
    5. $ git add . #lisbab kõik mis directorys on
    6. $ git add README.md #lisab kindla faili 
