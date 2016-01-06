@@ -12,6 +12,10 @@ $ git commit -m "Ansible"
 $ git remote add origin https://github.com/asjalik/ansible-master.git #addib remotesse
 $ git push origin master #pushib failid kõik üles giti
 
+#KUIDAS UPDATE FAILE:
+$ git commit #näitab ära mida saab commitida
+$ git commit -am "Adding tutorial" #kcommit kirjeldu
+
 # Genereeri ssh-key, kui sul seda pole:
    1. ssh-keygen -t rsa
    2. Võtit saad näha ~/.ssh/id_rsa.pub
