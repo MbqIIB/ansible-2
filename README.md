@@ -19,9 +19,11 @@
 # Genereeri ssh-key, kui sul seda pole:
    1. ssh-keygen -t rsa
    2. Võtit saad näha ~/.ssh/id_rsa.pub
+
 # To configure your GitHub account to use your SSH key:
    1. In your favorite text editor, open the ~/.ssh/id_rsa.pub file.
    2. Select the entire contents of the file and copy it to your clipboard. Do not add any newlines or whitespace.
+
 # Add the copied key to GitHub:
    1. In the top right corner of any page, click your profile photo, then click Settings. 
    2. In the user settings sidebar, click SSH keys.
