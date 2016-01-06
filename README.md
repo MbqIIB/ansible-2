@@ -41,13 +41,9 @@
 # Vaata, et .ssh asukohas oleks config fail ja sisaldaks jargnevat:
    1. go to $ ~/.ssh/config
    2. muuda ja lisa sellised read:
-
-    Host github.com 
-
-      Hostname ssh.github.com 
-
-      Port 443 
-
+   3. Host github.com 
+   4. Hostname ssh.github.com 
+   5. Port 443
    6. Testi uuesti ühendust:
    7. $ ssh -T git@github.com
    8. Enter passphrase for key '/root/.ssh/id_rsa': 
