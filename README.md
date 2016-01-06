@@ -2,27 +2,19 @@
 # kuidas giti kasutada ansible failide üleslaadimiseks:
 
 # Paigalda GIT:
-$ sudo apt-get install git #install
-
-$ git config --global user.name "asjalik" #kasutajanimi
-
-$ git config --global user.email "laidma27@gmail.com" #email
-
+$ sudo apt-get install git #install 
+$ git config --global user.name "asjalik" #kasutajanimi 
+$ git config --global user.email "laidma27@gmail.com" #email 
 $ git init #initializeb directoryt kus asud 
-
 $ git add . #lisbab kõik mis directorys on
-
-$ git add README.md #lisab kindla faili
-
-$ git commit -m "Ansible"
-
-$ git remote add origin https://github.com/asjalik/ansible-master.git #addib remotesse
-
-$ git push origin master #pushib failid kõik üles giti
+$ git add README.md #lisab kindla faili 
+$ git commit -m "Ansible" 
+$ git remote add origin https://github.com/asjalik/ansible-master.git #addib remotesse 
+$ git push origin master #pushib failid kõik üles gi 
 
 #KUIDAS UPDATE FAILE:
 $ git commit #näitab ära mida saab commitida
-$ git commit -am "Adding tutorial" #kcommit kirjeldu
+$ git commit -am "Adding tutorial" #kcommit kirjeldu 
 
 # Genereeri ssh-key, kui sul seda pole:
    1. ssh-keygen -t rsa
