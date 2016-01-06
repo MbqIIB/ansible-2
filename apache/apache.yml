@@ -1,0 +1,16 @@
+- hosts: 10.0.13.133
+
+  tasks:
+
+  - name: install/update latest version of apache2
+
+    apt: pkg=apache2 state=latest
+
+- hosts: 10.0.13.134
+
+  tasks:
+
+  - name: install/update latest version of apache2
+
+    apt: pkg=apache2 state=latest
+

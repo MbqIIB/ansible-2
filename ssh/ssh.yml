@@ -1,0 +1,7 @@
+- hosts: 10.0.13.*
+
+  tasks:
+
+  - name: install/update latest version of openssh
+ 
+    apt: pkg=ssh state=latest
