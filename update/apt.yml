@@ -1,0 +1,13 @@
+ - hosts: 10.0.13.*
+   sudo: true
+   tasks:
+
+   - name: updates a server
+     apt: update_cache=yes
+     notify: apt update
+  
+   - name: upgrades a server
+     apt: upgrade=full
+
+   - name: dist upgrades a server
+     apt: upgrade=dist
