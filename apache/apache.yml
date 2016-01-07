@@ -13,4 +13,3 @@
   - name: install/update latest version of apache2
 
     apt: pkg=apache2 state=latest
-

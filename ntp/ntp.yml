@@ -1,0 +1,22 @@
+ - hosts: 10.0.13.*
+
+   tasks:
+   - name: install ntp
+     apt: pkg=ntp state=latest force=yes
+     notify: restart ntp
+
+   - name: configure ntp
+     copy: src=/home/dwalin/ansible/ntp/ntp.conf dest=/etc/ntp.conf
+     notify: restart ntp
+
+   - name: configure timezone
+     command: cp /usr/share/zoneinfo/Europe/Tallinn /etc/localtime
+     when: ansible_date_time.tz !="CET"
+     notify: restart cron
+
+   handlers:
+    - name: restart ntp
+      service: name=ntp state=restarted
+
+    - name: restart cron
+      service: name=cron state=restarted
