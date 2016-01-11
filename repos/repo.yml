@@ -1,0 +1,33 @@
+---
+- hosts: all
+
+  tasks:
+
+  - name: Add key
+    apt_key: url=http://apt.tt.kit/apt.pub.key state=present
+
+  - name: Determine Linux distribution codename
+    command: lsb_release -cs
+    register: release_codename
+
+  - name: Check for file
+    stat: path=/etc/apt/apt.tt.kit.list
+    register: file_exists
+
+  - name: Download ria source
+    get_url: url=http://apt.tt.kit/ubuntu/sources/{{release_codename.stdout}}/apt.tt.kit.list dest=/etc/apt/
+    when: not file_exists.stat.exists
+
+  - name: Move RIA repo to source file
+    command: cp /etc/apt/apt.tt.kit.list /etc/apt/sources.list
+    when: not file_exists.stat.exists
+
+#  - name: Add ansible key
+#    apt_key: keyserver=keyserver.ubuntu.com id=6125E2A8C77F2818FB7BD15B93C4A3FD7BB9C367
+    
+#  - name: Add Ansible REPO to the LIST
+#    apt_repository: repo='ppa:ansible/ansible' state=present
+
+  - name: Update Repo list
+    apt: update_cache=yes cache_valid_time=86400
+    notify: apt update

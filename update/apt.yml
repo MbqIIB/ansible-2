@@ -1,14 +1,14 @@
- ---
- - hosts: all
-   sudo: true
-   tasks:
+---
+- hosts: all
+  sudo: true
+  tasks:
 
-   - name: updates a server
-     apt: update_cache=yes
-     notify: apt update
+  - name: updates a server
+    apt: update_cache=yes
+    notify: apt update
   
-   - name: upgrades a server
-     apt: upgrade=full
+  - name: upgrades a server
+    apt: upgrade=full
 
-   - name: dist upgrades a server
-     apt: upgrade=dist
+  - name: dist upgrades a server
+    apt: upgrade=dist
