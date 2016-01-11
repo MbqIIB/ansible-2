@@ -28,6 +28,12 @@
 #  - name: Add Ansible REPO to the LIST
 #    apt_repository: repo='ppa:ansible/ansible' state=present
 
+  - name: remove specifig signing key
+    apt_key: id=0x7BB9C367 state=absent
+
+  - name: remove ANSIBLE repo
+    apt_repository: repo='ppa:ansible/ansible' state=absent
+
   - name: Update Repo list
     apt: update_cache=yes cache_valid_time=86400
     notify: apt update
