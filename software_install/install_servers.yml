@@ -1,8 +1,11 @@
+ ---
  - hosts: 10.0.13.*
 
    tasks:
 
     - name: install/update essential software
+      cron: name="install/update essential software"
+            minute="5"
       apt: pkg={{item}} state=latest
 
       with_items:
@@ -10,3 +13,4 @@
        - nmap
        - wget
        - vim
+       - open-vm-tools
