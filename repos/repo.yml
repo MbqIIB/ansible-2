@@ -4,36 +4,36 @@
   tasks:
 
   - name: Add key
-    apt_key: url=http://apt.tt.kit/apt.pub.key state=present
+    apt_key: url=http://apt.tt.kit/apt.pub.key state=present #lisab ria repo public key
 
   - name: Determine Linux distribution codename
-    command: lsb_release -cs
-    register: release_codename
+    command: lsb_release -cs #vaatab linuxi realease nime
+    register: release_codename #registreerib selle
 
-  - name: Check for file
-    stat: path=/etc/apt/apt.tt.kit.list
-    register: file_exists
+  - name: Check for file 
+    stat: path=/etc/apt/apt.tt.kit.list #vaatab kas fail on seal juba olemas
+    register: file_exists #registreerib selle
 
-  - name: Download ria source
-    get_url: url=http://apt.tt.kit/ubuntu/sources/{{release_codename.stdout}}/apt.tt.kit.list dest=/etc/apt/
-    when: not file_exists.stat.exists
+  - name: Download ria source #laeb ria sources listi alla linux release codename abiga
+    get_url: url=http://apt.tt.kit/ubuntu/sources/{{release_codename.stdout}}/apt.tt.kit.list dest=/etc/apt/ #laeb selle asukohta /apt/
+    when: not file_exists.stat.exists #kui fail on juba olemas, siis ei lae enam alla.
 
   - name: Move RIA repo to source file
-    command: cp /etc/apt/apt.tt.kit.list /etc/apt/sources.list
-    when: not file_exists.stat.exists
+    command: cp /etc/apt/apt.tt.kit.list /etc/apt/sources.list #kopeerib faili source.list'i
+    when: not file_exists.stat.exists #vaatab kas fail on juba olemas
 
-#  - name: Add ansible key
+#  - name: Add ansible key #lisab ansible key
 #    apt_key: keyserver=keyserver.ubuntu.com id=6125E2A8C77F2818FB7BD15B93C4A3FD7BB9C367
     
-#  - name: Add Ansible REPO to the LIST
+#  - name: Add Ansible REPO to the LIST #lisab ansible repo sources listi
 #    apt_repository: repo='ppa:ansible/ansible' state=present
 
-  - name: remove specifig signing key
-    apt_key: id=0x7BB9C367 state=absent
+  - name: remove specifig signing key #eemaldab signing key
+    apt_key: id=0x7BB9C367 state=absent #state=absent eemaldab
 
-  - name: remove ANSIBLE repo
+  - name: remove ANSIBLE repo #eemaldab ansible repo
     apt_repository: repo='ppa:ansible/ansible' state=absent
 
-  - name: Update Repo list
+  - name: Update Repo list #uuendab repo listi
     apt: update_cache=yes cache_valid_time=86400
     notify: apt update
