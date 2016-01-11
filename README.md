@@ -15,7 +15,8 @@
 
 #KUIDAS UPDATE FAILE:
    1. $ git commit #näitab ära mida saab commitida
-   2. $ git commit -am "Adding tutorial" #kcommit kirjeldu 
+   2. $ git commit -am "Adding tutorial" #commit kirjeldus 
+   3. $ git commit -m "Uuendatud" -a #See paneb kõikidele nendele commiti, mida on uuendatud
 
 # Genereeri ssh-key, kui sul seda pole:
    1. ssh-keygen -t rsa
