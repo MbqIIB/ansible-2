@@ -1,7 +1,7 @@
 ---
-- hosts: all
+- hosts: all #teeb selle kõikidele hostidel
 
-  tasks:
+  tasks: #taskid, mida järgida
 
   - name: Add key
     apt_key: url=http://apt.tt.kit/apt.pub.key state=present #lisab ria repo public key
