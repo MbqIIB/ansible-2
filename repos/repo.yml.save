@@ -1,0 +1,20 @@
+---
+- hosts: 10.0.13.131
+
+  tasks:
+
+  - name: Add key
+    apt_key: url=http://apt.tt.kit/apt.pub.key state=present
+    sudo: yes
+
+  - name: Determine Linux distribution codename
+    command: lsb_release -cs
+    register: release_codename
+
+  - name: Add ria repository to sources list
+    copy:
+#      command: "http://apt.tt.kit/ubuntu/sources/{{release_codename.stdout}}/apt.tt.kit.list"
+      command: "http://apt.tt.kit/ubuntu/sources/{{release_codename.stdout}}/apt.tt.kit.list"
+
+     dest: /etc/apt/apt.tt.kit.list
+    sudo: yes
