@@ -1,4 +1,4 @@
 ---
 
-- name: Deleating user "{{ uusername }}" #Kustutab kasutaja
+- name: Deleting user "{{ uusername }}" #Kustutab kasutaja
   user: name="{{ uusername }}" state=absent remove=yes

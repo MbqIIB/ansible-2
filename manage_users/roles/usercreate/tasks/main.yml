@@ -5,7 +5,7 @@
   register: genpass
 
 - name: Creating user "{{ uusername }}" with admin access #teeb uue kasutaja admin õigustega
-  user: name={{ uusername }} password={{ upassword |password_hash('sha512') }} shell=/bin/bash groups=root append=yes #annab kasutajale parooli, shelli ja grupi
+  user: name={{ uusername }} password={{ upassword |password_hash('sha512') }} shell=/bin/bash append=yes #annab kasutajale parooli, shelli ja grupi
   when:  assigned_role  == "yes"
 
 - name: Creating users "{{ uusername }}" without admin access #teeb uue kasutaja mitte-admin õigustega

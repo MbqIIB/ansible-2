@@ -3,8 +3,10 @@
   vars: #kasutajate spetsiifilised v6imalused vars
    user_password: "{{ password }}" #parool
    user_name: "{{ username }}" #kasutajanimi
+#   group_name: "{{ group }}" #group
    is_admin: "{{ admin }}" #admin or not
   roles: #rollid create_user ja delete_user
          #rolle saab juurde lisada
     - { role: usercreate ,upassword: "{{ user_password }}",uusername: "{{ user_name }}",assigned_role: "{{ is_admin }}", when:  action  == "create_user" }
     - { role: userdel ,uusername: "{{ user_name }}", when:  action  == "delete_user" }
+#    - { role: groupcreate ,ugroup: "{{group_name}}", when action == "create_group" }
