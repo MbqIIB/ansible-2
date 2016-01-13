@@ -1,8 +1,14 @@
 ---
-- hosts: all
+- hosts: ubuntu
 
   tasks:
 
-  - name: install/update latest version of openssh
- 
+  - name: install/update latest version of openssh in Ubuntu
     apt: pkg=ssh state=latest
+
+- hosts: centos
+  remote_user: root
+  tasks:
+
+  - name: install update latest version of openssh in CentOS
+    yum: name=openssh state=latest
