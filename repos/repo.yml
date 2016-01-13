@@ -22,17 +22,17 @@
     command: cp /etc/apt/apt.tt.kit.list /etc/apt/sources.list #kopeerib faili source.list'i
     when: not file_exists.stat.exists #vaatab kas fail on juba olemas
 
-#  - name: Add ansible key #lisab ansible key
-#    apt_key: keyserver=keyserver.ubuntu.com id=6125E2A8C77F2818FB7BD15B93C4A3FD7BB9C367
+  - name: Add ansible key #lisab ansible key
+    apt_key: keyserver=keyserver.ubuntu.com id=6125E2A8C77F2818FB7BD15B93C4A3FD7BB9C367
     
-#  - name: Add Ansible REPO to the LIST #lisab ansible repo sources listi
-#    apt_repository: repo='ppa:ansible/ansible' state=present
+  - name: Add Ansible REPO to the LIST #lisab ansible repo sources listi
+    apt_repository: repo='ppa:ansible/ansible' state=present
 
-  - name: remove specifig signing key #eemaldab signing key
-    apt_key: id=0x7BB9C367 state=absent #state=absent eemaldab
+#  - name: remove specifig signing key #eemaldab signing key
+#    apt_key: id=0x7BB9C367 state=absent #state=absent eemaldab
 
-  - name: remove ANSIBLE repo #eemaldab ansible repo
-    apt_repository: repo='ppa:ansible/ansible' state=absent
+#   - name: remove ANSIBLE repo #eemaldab ansible repo
+#    apt_repository: repo='ppa:ansible/ansible' state=absent
 
   - name: Update Repo list #uuendab repo listi
     apt: update_cache=yes cache_valid_time=86400
