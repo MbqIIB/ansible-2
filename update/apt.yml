@@ -5,10 +5,15 @@
 
   - name: updates a server
     apt: update_cache=yes
-    notify: apt update
+    notify:           
+    - update server
   
   - name: upgrades a server
     apt: upgrade=full
-
+    notify:   
+    - upgrade server
+ 
   - name: dist upgrades a server
     apt: upgrade=dist
+    notify:
+    - dist upgrade server

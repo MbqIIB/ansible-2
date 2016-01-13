@@ -1,0 +1,7 @@
+---
+- hosts: '{{ host }}'
+  remote_user: '{{ user }}'
+
+  tasks:
+  - name: Add RSA key to the remote host
+    authorized_key: user='{{ user }}' key="{{ lookup('file', '/home/dwalin/.ssh/id_rsa.pub') }}"
