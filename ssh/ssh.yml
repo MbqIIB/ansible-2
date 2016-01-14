@@ -1,9 +1,14 @@
 ---
 - hosts: ubuntu
+<<<<<<< HEAD
+=======
+
+>>>>>>> 110dcca4f2ec8b536fed168c1567c1d9d750932c
   tasks:
 
   - name: install/update latest version of openssh in Ubuntu
     apt: pkg=ssh state=latest
+<<<<<<< HEAD
     notify:
     - restart ssh
   - name: ensure ssh is running (and enable it at boot)
@@ -12,11 +17,14 @@
   handlers:
    - name: restart ssh
      service: name=ssh state=restarted
+=======
+>>>>>>> 110dcca4f2ec8b536fed168c1567c1d9d750932c
 
 - hosts: centos
   remote_user: root
   tasks:
 
+<<<<<<< HEAD
   - name: install/update latest version of openssh in CentOS
     yum: name=openssh state=latest
     notify:
@@ -27,3 +35,7 @@
   handlers:
    - name: restart openssh
      service: name=sshd state=restarted
+=======
+  - name: install update latest version of openssh in CentOS
+    yum: name=openssh state=latest
+>>>>>>> 110dcca4f2ec8b536fed168c1567c1d9d750932c
