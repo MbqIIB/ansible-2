@@ -31,7 +31,7 @@
   - name: remove specifig signing key #eemaldab signing key
     apt_key: id=0x7BB9C367 state=absent #state=absent eemaldab
 
-  - name: remove ANSIBLE repo #eemaldab ansible repo
+   - name: remove ANSIBLE repo #eemaldab ansible repo
     apt_repository: repo='ppa:ansible/ansible' state=absent
 
   - name: Update Repo list #uuendab repo listi
