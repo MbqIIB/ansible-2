@@ -1,16 +1,29 @@
- ---
- - hosts: all
+---
+- hosts: ubuntu
 
-   tasks:
+  tasks:
 
-    - name: install/update essential software
-      cron: name="install/update essential software"
-            minute="5"
-      apt: pkg={{item}} state=latest
+  - name: install/update essential software for Ubuntu
+    apt: pkg={{item}} state=latest
 
-      with_items:
+    with_items:
 
-       - nmap
-       - wget
-       - vim
-       - open-vm-tools
+    - nmap
+    - wget
+    - vim
+    - open-vm-tools
+
+- hosts: centos
+  remote_user: root
+  tasks:
+
+  - name: install/update essential software for CentOS
+    yum: name={{item}} state=latest
+
+    with_items:
+
+    - nmap
+    - wget
+    - vim
+    - open-vm-tools
+    - yum
