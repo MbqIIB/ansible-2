@@ -53,14 +53,11 @@
     action: shell rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
     when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
 
-<<<<<<< HEAD
    - name: remove ANSIBLE repo #eemaldab ansible repo
     apt_repository: repo='ppa:ansible/ansible' state=absent
-=======
   - name: Configure YUM repository
     action: yum name=jenkins state=present
     when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
->>>>>>> 110dcca4f2ec8b536fed168c1567c1d9d750932c
 
   - name: Update Repo list #uuendab repo listi
     apt: update_cache=yes cache_valid_time=86400
