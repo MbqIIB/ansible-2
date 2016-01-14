@@ -6,9 +6,29 @@
   - name: install/update latest version of openssh in Ubuntu
     apt: pkg=ssh state=latest
 
+    notify:
+    - restart ssh
+  - name: ensure ssh is running (and enable it at boot)
+    service: name=ssh state=started
+
+  handlers:
+   - name: restart ssh
+     service: name=ssh state=restarted
+
 - hosts: centos
   remote_user: root
   tasks:
+
+  - name: install/update latest version of openssh in CentOS
+    yum: name=openssh state=latest
+    notify:
+    - restart sshd
+  - name: ensure openssh is running (and enable it at boot)
+    service: name=sshd state=started
+
+  handlers:
+   - name: restart openssh
+     service: name=sshd state=restarted
 
   - name: install update latest version of openssh in CentOS
     yum: name=openssh state=latest
