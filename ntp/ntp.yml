@@ -1,18 +1,20 @@
- ---
- - hosts: all
+---
+ - hosts: ubuntu
 
    tasks:
-   - name: install ntp
-     apt: pkg=ntp state=latest force=yes
+   - name: install ntp in Ubuntu
+     apt: pkg=ntp state=latest update-cache=yes
      notify: restart ntp
+     tags: ntp
 
    - name: configure ntp
-     copy: src=/home/dwalin/ansible/ntp/ntp.conf dest=/etc/ntp.conf
+     copy: src=/home/dwalin/srv/ansible/ntp/ntp.conf dest=/etc/ntp.conf
      notify: restart ntp
+     tags: ntp
 
    - name: configure timezone
      command: cp /usr/share/zoneinfo/Europe/Tallinn /etc/localtime
-     when: ansible_date_time.tz !="CET"
+     when: ansible_date_time.tz !="EET"
      notify: restart cron
 
    handlers:
@@ -21,3 +23,26 @@
 
     - name: restart cron
       service: name=cron state=restarted
+
+ - hosts: centos
+   remote_user: root
+
+   tasks:
+   - name: install ntp in CentOS
+     yum: name=ntp state=latest
+     notify: restart ntp
+     tags: ntp
+
+   - name: configure ntp
+     copy: src=/home/dwalin/srv/ansible/ntp/ntp.conf dest=/etc/ntp.conf
+     notify: restart ntp
+     tags: ntp
+
+   - name: configure timezone
+     command: cp /usr/share/zoneinfo/Europe/Tallinn /etc/localtime
+     when: ansible_date_time.tz !="EET"
+     notify: restart cron
+
+   - name: Start the ntp service
+     service: name=ntpd state=started enabled=yes
+     tags: ntp
