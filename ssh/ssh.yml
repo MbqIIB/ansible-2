@@ -29,6 +29,3 @@
   handlers:
    - name: restart openssh
      service: name=sshd state=restarted
-
-  - name: install update latest version of openssh in CentOS
-    yum: name=openssh state=latest
