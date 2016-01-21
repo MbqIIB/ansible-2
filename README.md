@@ -1,6 +1,6 @@
 #Ansible
 Ansible on tasuta confi- ja arvutite haldamise tarkvara.
-Ansible haldab k�ske SSH kaudu ja selle jaoks on vaja Pythonit (2.4 või varasem).
+Ansible haldab käske SSH kaudu ja selle jaoks on vaja Pythonit (2.4 võ varasem).
 Moodulid töötavad JSON kaudu ja stardardse väljundi kaudu ja võivad olla kirjutatud ka teistes programmeerkeeltes.
 Ansible konkurentideks on SaltStack, Chef ja Puppet.
 Ansible [dokumentatsioon](http://docs.ansible.com/) ja struktuur on kergem kui saltil näiteks.
@@ -15,4 +15,4 @@ Ansible [dokumentatsioon](http://docs.ansible.com/) ja struktuur on kergem kui s
 7. [Zabbbix-agent](https://github.com/asjalik/ansible/tree/master/zabbix-agent)
 8. [Apache](https://github.com/asjalik/ansible/tree/master/apache)
 9. [SSH install ja kontroll](https://github.com/asjalik/ansible/tree/master/ssh)
-10. [Kasutajad täiendus](https://github.com/asjalik/ansible/tree/master/users
+10. [Kasutajad t�iendus](https://github.com/asjalik/ansible/tree/master/user)
