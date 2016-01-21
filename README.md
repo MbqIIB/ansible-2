@@ -1,52 +1,25 @@
-# ansible-master
-# kuidas giti kasutada ansible failide üleslaadimiseks:
+#Ansible
+Ansible on tasuta confi- ja arvutite haldamise tarkvara.
+Ansible haldab nodes SSH kaudu ja selle jaoks on vaja Python it(2.4 või varasem).
+Moodulid töötavad JSON kaudu ja stardardse väljundi kaudu ja võivad olla kirjutatud ka teistes programmeerimiskes.
+Ansible konkurentideks on SaltStack, Chef ja Puppet.
+Ansible [dokumentatsioon](http://docs.ansible.com/) ja struktuur on kergem kui saltil näiteks.
 
-# Paigalda GIT:
-   1. $ sudo apt-get install git #install 
-   2. $ git config --global user.name "asjalik" #kasutajanimi 
-   3. $ git config --global user.email "laidma27[at]gmail.com" #email 
-   4. $ git config --list #näitab mis conf on määratud
-   5. $ git init #initializeb directoryt kus asud 
-   6. $ git add . #lisbab kõik mis directorys on
-   7. $ git add README.md #lisab kindla faili 
-   8. $ git commit -m "Ansible" 
-   9. $ git remote add origin https://github.com/asjalik/ansible-master.git #addib remotesse 
-   10. $ git push origin master #pushib failid kõik üles gi 
+#ülesanded
+1. [NTP](https://github.com/asjalik/ansible/tree/master/ntp)
+2. Basic
+3. [Kasutajate haldamine](https://github.com/asjalik/saltstack/blob/master/salt/users/)
+4. [Repode haldamine](https://github.com/asjalik/saltstack/tree/master/salt/repod)
+5. Tarkvara install
+6. Domeeniga [liidestamine](https://github.com/asjalik/saltstack/tree/master/salt/sssd) ja [lahkumine](https://github.com/asjalik/saltstack/tree/master/salt/sssd_leaveDomain)
+7. [Uuendamine](https://github.com/asjalik/saltstack/tree/master/salt/update)
+8. [Zabbbix-agent](https://github.com/asjalik/saltstack/tree/master/salt/zabbix-agent)
+9. [Apache](https://github.com/asjalik/saltstack/tree/master/salt/apache)
+10. [Vsftpd](https://github.com/asjalik/saltstack/tree/master/salt/vsftpd)
+11. [OpenVPN](https://github.com/asjalik/saltstack/tree/master/salt/openvpn)
+12. [Pillariga mässamin](https://github.com/asjalik/saltstack/tree/master/pillar)
+13. [Filtreeri Salti andmeid via Python](https://github.com/asjalik/saltstack/tree/master/salt/scriptid)
+14. [Vm-tools install](https://github.com/asjalik/saltstack/tree/master/salt/vm-tools)
+15. [Wget install](https://github.com/asjalik/saltstack/tree/master/salt/wget)
+16. [Top.sls fail](https://github.com/asjalik/saltstack/blob/master/salt/top.sls)
 
-#KUIDAS UPDATE FAILE:
-   1. $ git commit #näitab ära mida saab commitida
-   2. $ git commit -am "Adding tutorial" #commit kirjeldus 
-   3. $ git commit -m "Uuendatud" -a #See paneb kõikidele nendele commiti, mida on uuendatud
-
-# Genereeri ssh-key, kui sul seda pole:
-   1. ssh-keygen -t rsa
-   2. Võtit saad näha ~/.ssh/id_rsa.pub
-
-# To configure your GitHub account to use your SSH key:
-   1. In your favorite text editor, open the ~/.ssh/id_rsa.pub file.
-   2. Select the entire contents of the file and copy it to your clipboard. Do not add any newlines or whitespace.
-
-# Add the copied key to GitHub:
-   1. In the top right corner of any page, click your profile photo, then click Settings. 
-   2. In the user settings sidebar, click SSH keys.
-   3. Click Add SSH key. 
-   4. In the Title field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
-   5. Paste your key into the "Key" field. 
-   6. Click Add key. 
-   7. Confirm the action by entering your GitHub password.
-
-# Testi ühendust:
-   1. $ ssh -T git@github.com
-   2. Kui sul ei löö midagi ette, pead .ssh kausta config faili lisama ja sinna moned read lisama! 
-
-# Vaata, et .ssh asukohas oleks config fail ja sisaldaks jargnevat:
-   1. go to $ ~/.ssh/config
-   2. muuda ja lisa sellised read:
-   3. Host github.com 
-   4. Hostname ssh.github.com 
-   5. Port 443
-   6. Testi uuesti ühendust:
-   7. $ ssh -T git@github.com
-   8. Enter passphrase for key '/root/.ssh/id_rsa': 
-   9. Hi asjalik! You've successfully authenticated, but GitHub does not provide shell access.
-   10. Nüüd saad SSH key abil giti uploadida!

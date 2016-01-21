@@ -1,0 +1,22 @@
+#Kontrolli 체hendust
+ansible -m ping web
+
+#V천i
+ansible -m ping -all
+
+#Partitsioonide kontrollimiseks:
+ansible -m command -a "df -h" web
+
+#Kontrolli m홯ukasutust:
+ansible -m command -a "free -mt" web
+
+#Kontrolli uptime:
+ansible -m command -a "uptime" all
+
+#Vaata hostname ja arhiterktuuri:
+
+ansible -m command -a "arch" all
+ansible -m shell -a "hostname" all
+
+#Kui meil on vaja v홯jundit m천nest failist siis me v홬me selle nii kirjutada:
+ansible -m command -a "df -h" web > /tmp/df_outpur.txt
