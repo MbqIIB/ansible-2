@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  user: dwalin
+  user: kanakas
   sudo: yes
 
   tasks:

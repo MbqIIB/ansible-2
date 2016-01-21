@@ -4,4 +4,4 @@
 
   tasks:
   - name: Add RSA key to the remote host
-    authorized_key: user='{{ user }}' key="{{ lookup('file', '/home/dwalin/.ssh/id_rsa.pub') }}"
+    authorized_key: user='{{ user }}' key="{{ lookup('file', '/home/kanakas/.ssh/id_rsa.pub') }}"

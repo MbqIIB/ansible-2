@@ -8,7 +8,7 @@
      tags: ntp
 
    - name: configure ntp
-     copy: src=/home/dwalin/srv/ansible/ntp/ntp.conf dest=/etc/ntp.conf
+     copy: src=/home/kanakas/srv/ansible/ntp/ntp.conf dest=/etc/ntp.conf
      notify: restart ntp
      tags: ntp
 
@@ -34,7 +34,7 @@
      tags: ntp
 
    - name: configure ntp
-     copy: src=/home/dwalin/srv/ansible/ntp/ntp.conf dest=/etc/ntp.conf
+     copy: src=/home/kanakas/srv/ansible/ntp/ntp.conf dest=/etc/ntp.conf
      notify: restart ntp
      tags: ntp
 
@@ -46,5 +46,5 @@
    - name: Start the ntp service
      service: name=ntpd state=started enabled=yes
      tags: ntp
-#Kontrollida saab ntpdate -q ntp.aso.ee
+#Kontrollida saab ntpdate -q <ntp server>
 #timedatectl

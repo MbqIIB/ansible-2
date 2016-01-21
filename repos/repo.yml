@@ -9,8 +9,8 @@
           (ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "12")
     apt_key: id=7BB9C367 url="http://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0x7BB9C367" state=present
 
-  - name: Add RIA key
-    apt_key: url=http://apt.tt.kit/apt.pub.key state=present #lisab ria repo public key
+  - name: Add key
+    apt_key: url=http://a<adress>/apt.key state=present #lisab repo public key
     when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "14") or
           (ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "12")
 
@@ -18,17 +18,17 @@
     command: lsb_release -cs #vaatab linuxi realease nime
     register: release_codename #registreerib selle
 
-#  - name: Check for RIA repo source.list
-#    stat: path=/etc/apt/apt.tt.kit.list #vaatab kas fail on seal juba olemas
+#  - name: Check for repo source.list
+#    stat: path=/etc/apt/<apt.source fail>.list #vaatab kas fail on seal juba olemas
 #    register: file_exists #registreerib selle
 
-  - name: Download ria source #laeb ria sources listi alla linux release codename abiga
-    get_url: url=http://apt.tt.kit/ubuntu/sources/{{release_codename.stdout}}/apt.tt.kit.list dest=/etc/apt/ #laeb selle asukohta /apt/
+  - name: Download source #laeb sources listi alla linux release codename abiga
+    get_url: url=http://<apt.source fail>.kit/ubuntu/sources/{{release_codename.stdout}}/<apt.source fail>.list dest=/etc/apt/ #laeb selle asukohta /apt/
     when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "14") or
           (ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "12")
 
   - name: Move RIA repo to source file
-    command: cp /etc/apt/apt.tt.kit.list /etc/apt/sources.list #kopeerib faili source.list'i
+    command: cp /etc/apt/<apt.source fail>.list /etc/apt/sources.list #kopeerib faili source.list'i
     when: (ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "14") or
           (ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "12")
 
@@ -44,7 +44,7 @@
 #    apt_repository: repo='ppa:ansible/ansible' state=absent
 
   #Need taskid on CentOS'ile
-  #Only if this is a CentOS (NOT TESTED!)
+  #Only if this is a CentOS
   - name: Configure YUM repository
     action: get_url url=http://pkg.jenkins-ci.org/redhat/jenkins.repo dest=/etc/yum.repos.d/jenkins.repo 
     when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
