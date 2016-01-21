@@ -1,6 +1,6 @@
 #Ansible
 Ansible on tasuta confi- ja arvutite haldamise tarkvara.
-Ansible haldab kaske SSH kaudu ja selle jaoks on vaja Pythonit (2.4 v√i varasem)Moodulid tootavad JSON kaudu ja stardardse v√ajundi kaudu ja voivad olla kirjutatud ka teistes programmeerkeeltes.
+Ansible haldab kaske SSH kaudu ja selle jaoks on vaja Pythonit (2.4 voi varasem)Moodulid tootavad JSON kaudu ja stardardse valjundi kaudu ja voivad olla kirjutatud ka teistes programmeerkeeltes.
 Ansible konkurentideks on SaltStack, Chef ja Puppet.
 Ansible [dokumentatsioon](http://docs.ansible.com/) ja struktuur on kergem kui saltil naiteks.
 
